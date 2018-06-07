@@ -36,12 +36,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		libncurses5 \
 	&& rm -rf /var/lib/apt/lists/*
 
-ENV MYSQL_MAJOR 5.5
-ENV MYSQL_VERSION 5.5.60
-
 RUN apt-get update && apt-get install -y ca-certificates wget --no-install-recommends && rm -rf /var/lib/apt/lists/* \
-	&& wget "https://cdn.mysql.com/Downloads/MySQL-$MYSQL_MAJOR/mysql-$MYSQL_VERSION-linux-glibc2.12-x86_64.tar.gz" -O mysql.tar.gz \
-	&& wget "https://cdn.mysql.com/Downloads/MySQL-$MYSQL_MAJOR/mysql-$MYSQL_VERSION-linux-glibc2.12-x86_64.tar.gz.asc" -O mysql.tar.gz.asc \
+	&& wget "https://downloads.mysql.com/archives/get/file/mysql-5.0.96-linux-x86_64-glibc23.tar.gz" -O mysql.tar.gz \
+	&& wget "https://downloads.mysql.com/archives/gpg/?file=mysql-5.0.96-linux-x86_64-glibc23.tar.gz" -O mysql.tar.gz.asc \
 	&& apt-get purge -y --auto-remove ca-certificates wget \
 	&& export GNUPGHOME="$(mktemp -d)" \
 # gpg: key 5072E1F5: public key "MySQL Release Engineering <mysql-build@oss.oracle.com>" imported
@@ -83,3 +80,4 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 3306
 CMD ["mysqld"]
+
