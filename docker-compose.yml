@@ -1,0 +1,9 @@
+version: '3'
+services:
+  mysql50:
+    build: .
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - 13306:3306
+
