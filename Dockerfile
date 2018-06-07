@@ -65,7 +65,7 @@ RUN mkdir -p /etc/mysql/conf.d \
 		echo 'skip-name-resolve'; \
 		echo 'datadir = /var/lib/mysql'; \
 		echo '!includedir /etc/mysql/conf.d/'; \
-	} > /etc/mysql/my.cnf
+	} > /etc/my.cnf
 
 RUN mkdir -p /var/lib/mysql /var/run/mysqld \
 	&& chown -R mysql:mysql /var/lib/mysql /var/run/mysqld \
