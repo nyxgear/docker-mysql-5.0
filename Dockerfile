@@ -37,8 +37,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y ca-certificates wget --no-install-recommends && rm -rf /var/lib/apt/lists/* \
-	&& wget "https://downloads.mysql.com/archives/get/file/mysql-5.0.96-linux-x86_64-glibc23.tar.gz" -O mysql.tar.gz \
-	&& wget "https://downloads.mysql.com/archives/gpg/?file=mysql-5.0.96-linux-x86_64-glibc23.tar.gz" -O mysql.tar.gz.asc \
+	&& wget "https://downloads.mysql.com/archives/get/p/23/file/mysql-5.0.96-linux-x86_64-glibc23.tar.gz" -O mysql.tar.gz \
+	&& wget "https://downloads.mysql.com/archives/gpg/?file=mysql-5.0.96-linux-x86_64-glibc23.tar.gz&p=23" -O mysql.tar.gz.asc \
 	&& apt-get purge -y --auto-remove ca-certificates wget \
 	&& export GNUPGHOME="$(mktemp -d)" \
 # gpg: key 5072E1F5: public key "MySQL Release Engineering <mysql-build@oss.oracle.com>" imported
